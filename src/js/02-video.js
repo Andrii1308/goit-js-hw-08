@@ -10,15 +10,8 @@ const onPlay = function (currentTime) {
   localStorage.setItem('videoplayer-current-time', JSON.stringify(currentSec));
 };
 
+
+player.setCurrentTime(
+  JSON.parse(localStorage.getItem('videoplayer-current-time' || 0))
+);
 player.on('timeupdate', throttle(onPlay, 1000));
-player
-  .setCurrentTime(JSON.parse(localStorage.getItem('videoplayer-current-time')))
-  .then(function (seconds) {})
-  .catch(function (error) {
-    switch (error.name) {
-      case 'RangeError':
-        break;
-      default:
-        break;
-    }
-  });
