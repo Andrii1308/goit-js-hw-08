@@ -11,6 +11,14 @@ const onPlay = function (currentTime) {
 };
 
 player.on('timeupdate', throttle(onPlay, 1000));
-player.setCurrentTime(
-  JSON.parse(localStorage.getItem('videoplayer-current-time'))
-);
+player
+  .setCurrentTime(JSON.parse(localStorage.getItem('videoplayer-current-time')))
+  .then(function (seconds) {})
+  .catch(function (error) {
+    switch (error.name) {
+      case 'RangeError':
+        break;
+      default:
+        break;
+    }
+  });
