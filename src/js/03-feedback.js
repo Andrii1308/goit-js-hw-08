@@ -22,7 +22,7 @@ function onSubmitForm(event) {
   event.preventDefault();
 
   if (!obj.email || !obj.message) {
-    alert('Заполните все поля, пожалуйста) 🍀');
+    alert('Заповність всі поля, будь ласка!');
   } else {
     console.log(obj);
     event.target.reset();
